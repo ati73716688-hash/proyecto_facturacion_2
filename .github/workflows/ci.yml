@@ -16,9 +16,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest
-      - name: 4. Auditar codigo completo con Flake8
+      - name: 4. Auditar codigo con Flake8
         run: |
-          flake8 src/ tests/ --max-line-length=100
+          flake8 . --max-line-length=100 --exclude=.git,.venv,venv
       - name: 5. Ejecutar pruebas con Pytest
         run: |
-          pytest tests/test_facturacion_pytest.py
+          python -m pytest -v
+
